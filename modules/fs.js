@@ -31,6 +31,12 @@ fs.appendFile(path.join(__dirname, '/test', 'test.txt'), 'hello Word!',(error) =
     }
 
     console.log('Arquivo modificado com sucesso!'); 
+})
 
-
+//Ler arquivo 
+fs.readFile(path.join(__dirname, '/test', 'test.txt'), 'utf8', (error, data) => {
+   if (error) {
+        return console.log('Erro: ', error)
+    }
+    console.log(data)  
 })

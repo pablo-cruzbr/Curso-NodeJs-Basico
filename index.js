@@ -4,6 +4,6 @@ const {Person} = require("./person")
 //require('./modules/fs')
 //require('./modules/http');
 
-required("./modules/express")
+require("./modules/express")
 
 //Executar: node index.js

@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-app.get('/home', () => {
+app.get('/home', (req, res) => { 
     res.status(200).send('<h1>hello word</h1>')
 });
 

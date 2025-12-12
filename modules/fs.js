@@ -23,3 +23,14 @@ fs.writeFile(
         console.log('Arquivo Criado/Escrito com sucesso!'); 
     } 
 );
+
+//Adicionar aArquivo
+fs.appendFile(path.join(__dirname, '/test', 'test.txt'), 'hello Word!',(error) => {
+    if (error) {
+        return console.log('Erro: ', error)
+    }
+
+    console.log('Arquivo modificado com sucesso!'); 
+
+
+})

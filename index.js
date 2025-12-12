@@ -1,6 +1,8 @@
 const {Person} = require("./person")
 
+require('./modules/path')
+
 const person = new Person('Pablo');
-console.log(person.sayMyName());
+
 
 //Executar: node index.js

@@ -1,8 +1,6 @@
 const {Person} = require("./person")
 
 //require('./modules/path')
-require('./modules/fs')
-const person = new Person('Pablo');
-
-
+//require('./modules/fs')
+require('./modules/http');
 //Executar: node index.js

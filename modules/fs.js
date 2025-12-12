@@ -1,3 +1,4 @@
+const { error } = require('console');
 const fs = require('fs')
 const path = require('path');
 
@@ -9,3 +10,16 @@ fs.mkdir(path.join(__dirname, '/test'), (error) => {
 
     console.log('Pasta Criada com sucesso!');    
 });
+
+//Criar uma pasta e Arquivo
+fs.writeFile(
+    path.join(__dirname, "/test", "test.txt"),
+    "Hello Node.js!", 
+    (error) => { 
+        if (error) {
+            return console.log('Erro ao escrever no arquivo:', error);
+        }
+        
+        console.log('Arquivo Criado/Escrito com sucesso!'); 
+    } 
+);

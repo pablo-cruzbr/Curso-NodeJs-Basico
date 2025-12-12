@@ -14,5 +14,7 @@ console.log(path.extname(__filename));
 //Criar um objeto path
 console.log(path.parse(__filename));
 
+//Juntar caminhos de arquivos
+console.log(path.join(__dirname, 'test'))
 
 

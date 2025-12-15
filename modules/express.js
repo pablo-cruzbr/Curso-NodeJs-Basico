@@ -4,6 +4,10 @@ const app = express();
 
 app.use(express.json()); 
 
+app.use((req, res, next) => {
+ next()
+});
+
 app.get('/home', (req, res) => { 
     res.status(200).send('<h1>hello word</h1>');
 });

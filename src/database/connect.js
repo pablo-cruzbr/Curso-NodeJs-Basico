@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const connectToDataBase = async () => {
     try {
         await mongoose.connect(
-            "mongodb+srv://admin:<db_password>@cluster0.gin0m4g.mongodb.net/?appName=Cluster0"
+            `mongodb+srv://${MONGOBD_USERNAME}:${process.env.MONGOBD_PASSWORD}@cluster0.gin0m4g.mongodb.net/?appName=Cluster0`
         );
         console.log("Conexão ao banco de dados realizada com sucesso!");
     } catch (error) {

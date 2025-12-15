@@ -4,11 +4,19 @@ const app = express();
 
 app.use(express.json()); 
 app.set('view engine', 'ejs');
-app.set("views", '../src/viewsd');
+app.set("views", 'src/views');
 
 app.use((req, res, next) => {
  next()
 });
+
+app.get("/views/users", async (req, res) => {
+    const getusers = await UserModel.find({});
+
+    res.render("index", { users: getusers }); 
+})
+
+app.set("views", "src/views")
 
 app.get('/home', (req, res) => { 
     res.status(200).send('<h1>hello word</h1>');
@@ -30,9 +38,9 @@ app.get("/users", (req, res)=> {
 
 app.get('/getusers', async (req, res) => {
     try {
-        const user = await UserModel.find({}); 
+        const getusers = await UserModel.find({}); 
         
-        res.status(201).json(user);
+        res.status(201).json(getusers);
         
     } catch (error) { 
     

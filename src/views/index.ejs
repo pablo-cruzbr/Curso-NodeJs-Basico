@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+    </head>
+<body>
+    <div class="container">
+        <h2>Informações dos Usuários</h2>
+        <div class="content">
+            
+            <% if (users && users.length > 0) { %>
+                
+                <% users.forEach(user => { %>
+                    <div class="user-card">
+                        <h3 class="title"><%= user.firstName %> <%= user.lastName %></h3>
+                        <p>Email: <%= user.email %></p>
+                        </div>
+                    <hr> <% }); %>
+            
+            <% } else { %>
+                
+                <p><strong>⚠️ Aviso: Não há usuários cadastrados para exibir.</strong></p>
+            
+            <% } %>
+
+        </div>
+    </div>
+</body>
+</html>

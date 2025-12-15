@@ -1,4 +1,3 @@
-// connect.js (CORRIGIDO)
 const mongoose = require("mongoose");
 
 const connectToDataBase = async () => {

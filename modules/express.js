@@ -1,8 +1,11 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const UserModel = require('../src/models/user.model');
+const app = express();
+
+app.use(express.json()); 
 
 app.get('/home', (req, res) => { 
-    res.status(200).send('<h1>hello word</h1>')
+    res.status(200).send('<h1>hello word</h1>');
 });
 
 app.get("/users", (req, res)=> {
@@ -15,10 +18,49 @@ app.get("/users", (req, res)=> {
             name: "Geovanna Silva",
             email: "geovanna.silva@gmail.com",
         }
-    ]
+    ];
     res.status(200).json(users);
-})
+});
+
+app.get('/getusers', async (req, res) => {
+    try {
+        const user = await UserModel.find({}); 
+        
+        res.status(201).json(user);
+        
+    } catch (error) { 
+    
+        if (error.name === 'ValidationError') {
+            return res.status(400).json({
+                message: 'Falha na validação: dados obrigatórios faltando.',
+                errors: error.errors
+            });
+        }
+        
+        res.status(500).send(error.message);
+    }
+});
+
+
+app.post('/users', async (req, res) => {
+    try {
+        const user = await UserModel.create(req.body); 
+        
+        res.status(201).json(user);
+        
+    } catch (error) { 
+    
+        if (error.name === 'ValidationError') {
+            return res.status(400).json({
+                message: 'Falha na validação: dados obrigatórios faltando.',
+                errors: error.errors
+            });
+        }
+        
+        res.status(500).send(error.message);
+    }
+});
 
 const port = 8080;
 
-app.listen(port, () => console.log(`Rodando com Express na porta: ${port}`))
+app.listen(port, () => console.log(`Rodando com Express na porta: ${port}`));
